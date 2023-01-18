@@ -175,8 +175,8 @@ def calc_gradient_penalty(netD, real_data, fake_data, device, type='mixed', cons
 real_folder = f'./output/all_real_imgs_celeba'
 if not os.path.exists(real_folder):
     os.mkdir(real_folder)
-    #for i in tqdm(range(len(dataset))):
-    #    vutils.save_image(dataset[i][0], real_folder + '/{}.png'.format(i), normalize=True)
+    for i in tqdm(range(len(dataset))):
+        vutils.save_image(dataset[i][0], real_folder + '/{}.png'.format(i), normalize=True)
 
 fake_folder = f'./output/all_fake_imgs_celeba'
 if not os.path.exists(fake_folder):
@@ -188,7 +188,7 @@ print("Discriminator Parameters:",sum(p.numel() for p in netD.parameters() if p.
 lambda_gp = 10
 frechet_dist =  500
 iters = 0
-first_loop = False
+first_loop = True
 
 for epoch in range(args.n_epochs):
     for i, (imgs, _) in enumerate(dataloader):
@@ -239,7 +239,7 @@ for epoch in range(args.n_epochs):
             generation_loop_iter = int(fake_image_num_sample/fid_batch_size)
             netG.eval()
             for i in range(generation_loop_iter):
-                noise = torch.randn(size=(fid_batch_size,100,1,1)).to(device)
+                noise = torch.randn(size=(fid_batch_size, args.latent_dim, 1, 1)).to(device)
                 fake = netG(noise)
                 for j in range(fake.shape[0]):
                     vutils.save_image(fake.detach()[j,...],fake_folder + '/{}.png'.format(j + i * fid_batch_size), normalize=True)
