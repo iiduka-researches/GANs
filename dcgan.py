@@ -160,8 +160,8 @@ if __name__ == '__main__':
     real_folder = f'./output/all_real_imgs_lsun'
     if not os.path.exists(real_folder):
         os.mkdir(real_folder)
-        #for i in tqdm(range()):
-        #    vutils.save_image(dataset[i][0], real_folder + '/{}.png'.format(i), normalize=True)
+        for i in tqdm(range()):
+            vutils.save_image(dataset[i][0], real_folder + '/{}.png'.format(i), normalize=True)
 
     fake_folder = f'./output/all_fake_imgs_lsun'
     if not os.path.exists(fake_folder):
@@ -172,7 +172,7 @@ if __name__ == '__main__':
     
     iters = 0
     frechet_dist = 500
-    first_loop = False
+    first_loop = True
     
     print("Starting Training Loop...")
     for epoch in range(args.num_epochs):
