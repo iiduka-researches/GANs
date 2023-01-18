@@ -14,7 +14,7 @@ import torchvision.transforms as transforms
 import torchvision.utils as vutils
 import numpy as np
 from tqdm import tqdm
-from mycleanfid import fid
+from cleanfid import fid
 from adabelief_pytorch import AdaBelief
 
 #Argument Set#
