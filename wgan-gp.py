@@ -5,7 +5,7 @@ import uuid
 
 import torchvision.transforms as transforms
 import torchvision.datasets as dset
-from mycleanfid import fid
+from cleanfid import fid
 import torchvision.utils as vutils
 from adabelief_pytorch import AdaBelief
 from torch.utils.data import DataLoader
