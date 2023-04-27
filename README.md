@@ -1,4 +1,4 @@
-# Existence and Estimation of Critical Batch Size for Training Generative Adversarial Networks of Two Time-Scale Update Rule
+# Existence and Estimation of Critical Batch Size for Training Generative Adversarial Networks with Two Time-Scale Update Rule
 Code for reproducing experiments in our paper.  
 Our experiments were based on the basic code for DCGAN, WGAN-GP, and BigGAN.
 
