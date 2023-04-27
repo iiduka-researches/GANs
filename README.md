@@ -23,9 +23,16 @@ parser.add_argument("--wandb_entity", type=str, default='XXXXXX', help='entity o
 ```
 
 # FID Calculation
-The [clean-fid package](https://github.com/GaParmar/clean-fid) was used to calculate the FID. 
+The [clean-fid package](https://github.com/GaParmar/clean-fid) was used to calculate the FID.   
 Our "mycleanfid" has been modified so that the real image statistics need to be computed only once first.
+```Python
+from cleanfid import fid
 
+frechet_dist=fid.compute_fid(real_folder, fake_folder)              #original
+frechet_dist=fid.compute_fid(real_folder, fake_folder, first_loop)  #ours
+```
+The argument first_loop has `True` if the FID calculation is performed for the first time, otherwise it has `False`.
+Once the FID calculation is performed, "mu1.dump" and "sigma1.dump", which are the statistics of the real images, are saved, so no further processing is required on the real images.
 
 # Usage
 Please change optimizer Adam, AdaBelief, or RMSProp.
