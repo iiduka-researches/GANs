@@ -32,7 +32,7 @@ frechet_dist=fid.compute_fid(real_folder, fake_folder)              #original
 frechet_dist=fid.compute_fid(real_folder, fake_folder, first_loop)  #ours
 ```
 The argument first_loop has `True` if the FID calculation is performed for the first time, otherwise it has `False`.
-Once the FID calculation is performed, "mu1.dump" and "sigma1.dump", which are the statistics of the real images, are saved, so no further processing is required on the real images.
+Once the FID calculation is performed, "mu1.dump" and "sigma1.dump", which are the statistics of the real images, are saved, so no further processing is required on the real images. It can greatly reduce calculation time.
 
 # Usage
 Please change optimizer Adam, AdaBelief, or RMSProp.
